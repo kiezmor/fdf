@@ -30,7 +30,7 @@ int		count_col(char **tab, t_info *i)
 	i->ylines = s;
 	if(i->bol == 0)
 		i->ylines_check = s;
-	return (i);
+	return (s);
 }
 
 int		count_line(char *map)
@@ -39,7 +39,7 @@ int		count_line(char *map)
 	int		s;
 	char	*line;
 
-	fd = open(map, O_RDONLY)
+	fd = open(map, O_RDONLY);
 	while(get_next_line(fd, &line) > 0)
 		s++;
 	close(fd);

@@ -62,6 +62,28 @@ typedef struct	s_point
 	int		y;
 }				t_point;
 
-void	init_win(t_info *i);
+void		init_win(t_info *i);
+void		errors(int id);
+int			main(int ac, char **av);
+void		check_char(char c);
+int			count_col(char **tab, t_info *i);
+int			count_line(char *map);
+int			*stock_tab(char *str, t_info *i);
+void		open_map(t_info *i, char *map);
+void		init_co(t_info *i);
+void		put_img(t_info *i);
+void		init_par(t_info *i);
+void		init_win(t_info *i);
+void		para_change(t_info *i, int key);
+int			key_print(int key, t_info *i);
+void		r_menu(t_info *s);
+void		l_menu(t_info *s);
+void		menu(t_info *i);
+void		pixel_to_image(int x, int y, t_info *i);
+t_point		calcul(int x, int y, int z, t_info *i);
+void		print_trace(t_point p1, t_point p2, t_info *i);
+void		printf_map(t_info *i);
+void		init_color(t_info *i, int z);
+void		init_color_two(t_info *i, int z);
 
 #endif

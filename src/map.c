@@ -55,11 +55,12 @@ int		*stock_tab(char *str, t_info *i)
 	tab = NULL;
 	s = 0;
 	tmp = ft_strsplit(str, ' ');
+	tab = (int *)malloc(sizeof(int) * count_col(tmp, i));
 	while(tmp[s])
 	{
-		check_char(*tmp[i]);
-		tab[i] = ft_atoi(tmp[i]);
-		i++;
+		check_char(*tmp[s]);
+		tab[s] = ft_atoi(tmp[s]);
+		s++;
 	}
 	if(!(i))
 		errors(4);

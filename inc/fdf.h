@@ -14,6 +14,7 @@
 # define FDF_H
 
 # include "mlx.h"
+# include "libft.h"
 # include <math.h>
 
 # define NAME "FdF"
@@ -42,6 +43,7 @@ typedef struct	s_info
 	float	red;
 	float	green;
 	float	blue;
+	int		bol;
 	int		bpp;
 	int		sl;
 	int		ian;

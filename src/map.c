@@ -82,7 +82,7 @@ void	open_map(t_info *i, char *map)
 	{
 		i->tab[c] = stock_tab(line, lc);
 		i->bol = 1;
-		if (i->yline != i->ylines_check)
+		if (i->ylines != i->ylines_check)
 			errors(4);
 		c++;
 	}

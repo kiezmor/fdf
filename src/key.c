@@ -43,7 +43,7 @@ void	para_change(t_info *i, int key)
 int		key_print(int key, t_info *i)
 {
 	para_change(i, key);
-	put_calc_img(i);
+	put_img(i);
 	return (0);
 }
 

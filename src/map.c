@@ -36,21 +36,21 @@ int		count_col(char **tab, t_info *i)
 int		count_line(char *map)
 {
 	int		fd;
-	int		i;
+	int		s;
 	char	*line;
 
 	fd = open(map, O_RDONLY)
 	while(get_next_line(fd, &line) > 0)
-		i++;
+		s++;
 	close(fd);
-	return (i);
+	return (s);
 }
 
 int		*stock_tab(char *str, t_info *i)
 {
 	int		s;
 	char	**tmp;
-	int		tab;
+	int		*tab;
 
 	tab = NULL;
 	s = 0;

@@ -76,18 +76,18 @@ void		printf_map(t_info *i)
 	{
 		while (i->x < i->ylines)
 		{
-			p1 = calcul(i->x, i->y, i->tab[i->y][i->x], s);
+			p1 = calcul(i->x, i->y, i->tab[i->y][i->x], i);
 			i->x++;
-			init_color(s, i->tab[i->y][i->x]);
+			init_color(i, i->tab[i->y][i->x]);
 			if (i->x < i->ylines)
 			{
-				p2 = calcul(i->x, i->y, i->tab[i->y][i->x], s);
-				print_trace(p1, p2, s);
+				p2 = calcul(i->x, i->y, i->tab[i->y][i->x], i);
+				print_trace(p1, p2, i);
 			}
 			if (i->y < i->xlines - 1)
 			{
-				p2 = calcul(i->x - 1, i->y + 1, i->tab[i->y + 1][i->x - 1], s);
-				print_trace(p1, p2, s);
+				p2 = calcul(i->x - 1, i->y + 1, i->tab[i->y + 1][i->x - 1], i);
+				print_trace(p1, p2, i);
 			}
 		}
 		i->x = 0;

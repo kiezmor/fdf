@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/fdf.h"
+#include "fdf.h"
 
 void	para_change(t_info *i, int key)
 {

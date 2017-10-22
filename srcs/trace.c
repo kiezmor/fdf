@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/fdf.h"
+#include "fdf.h"
 
 void		put_pixel_to_image(int x, int y, t_info *i)
 {

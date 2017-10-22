@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/fdf.h"
+#include "fdf.h"
 
 int		count_col(char **tab, t_info *s)
 {

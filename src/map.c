@@ -77,11 +77,11 @@ void	open_map(t_info *i, char *map)
 	c = 0;
 	fd = open(map, O_RDONLY);
 	lc = count_line(map);
-	i->tab = (int **)malloc(sizeof(int *) * lines);
+	i->tab = (int **)malloc(sizeof(int *) * lc);
 	ft_memset(i, 0, sizeof(i));
 	while((get_next_line(fd, &line)) > 0)
 	{
-		i->tab[c] = stock_tab(line, lc);
+		i->tab[c] = stock_tab(line, i);
 		i->bol = 1;
 		if (i->ylines != i->ylines_check)
 			errors(4);

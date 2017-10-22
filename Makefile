@@ -38,7 +38,11 @@ NC		=	\x1b[0m
 OBJ		=	$(addprefix $(OBJ_D)/, $(SRC: .c=.o))
 
 SRC		=	src/fdf.c\
-			src/init.c
+			src/init.c\
+			src/clr.c\
+			src/key.c\
+			src/map.c\
+			src/printf.c
 
 ## Utils
 
@@ -59,9 +63,6 @@ $(OBJ_D)/%.o: ./src/%.c
 
 e:
 	$(CC) -o $(NAME) $(FRAMEW) -I./libft/includes/ libft/libft.a $(SRC)
-
-t:
-	@$(CC) -o $(NAME) src/main.c $(FRAMEW)
 
 clean: 
 	@rm -rf $(OBJ_D)

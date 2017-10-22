@@ -14,34 +14,33 @@
 #include "fdf.h"
 #include "libft.h"
 
-static void	ft_errors(int ac,char **av)
+void	errors(int id)
 {
-	int	fd;
-
-	if (ac > 2)
-	{
-		ft_putendl_fd("Error, too much arguments.", 2);
-		// exit(EXIT_FAILURE);
-	}
-	else if (ac < 2)
-	{
-		ft_putendl_fd("Error, missing arguments.", 2);
-		// exit(EXIT_FAILURE);
-	}
-	fd = open(av[1], O_RDONLY);
-	if (fd == -1)
-	{
-		ft_putendl_fd("Error, file not found.", 2);
-		// exit(EXIT_FAILURE);
-	}
+	if (id == 1)
+		ft_putendl_fd("Error, too much arguments.\n", 2);
+	if (id == 2)
+		ft_putendl_fd("Error, missing arguments.\n", 2);
+	if (id == 3)
+		ft_putendl_fd("Error, file not found.\n", 2);
+	if (id == 4)
+		ft_putendl_fd("Error, invalid file.\n", 2);
+	ft_putendl("Usage:\t./fdf <map>", 2);
+	exit(EXIT_FAILURE);
 	close(fd);
 }
 
 int	main(int ac, char **av)
 {
 	t_info	*i;
+	int		fd;
+
 	i = malloc(sizeof(t_info));
-	ft_errors(ac, av);
-	init_win(i);
-	return (0);
+	if (ac > 2)
+		errors(1);
+	if (ac < 2)
+		errors(2);
+	if ((fd = open(av[1], O_RDONLY)) == -1)
+		errors(3);
+	close(fd);
+	open_map(i, av[1]);
 }

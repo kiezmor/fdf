@@ -44,7 +44,7 @@ void	init_win(t_info *i)
 	i->mlx = mlx_init();
 	i->win = mlx_new_window(i->mlx, WDT, HGT, NAME);
 	init_par(i);
-	put_calc_img(i);
+	put_img(i);
 	mlx_hook(i->win, 2, 3, key_print, i);
 	mlx_loop(i->mlx);
 }

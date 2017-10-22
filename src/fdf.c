@@ -24,9 +24,8 @@ void	errors(int id)
 		ft_putendl_fd("Error, file not found.\n", 2);
 	if (id == 4)
 		ft_putendl_fd("Error, invalid file.\n", 2);
-	ft_putendl("Usage:\t./fdf <map>", 2);
+	ft_putendl("Usage:\t./fdf <map>");
 	exit(EXIT_FAILURE);
-	close(fd);
 }
 
 int	main(int ac, char **av)

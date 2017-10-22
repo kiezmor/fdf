@@ -14,10 +14,10 @@
 
 void	para_change(t_info *i, int key)
 {
-	i->y_place += (key == 125) ? 10 : 0;
-	i->x_place += (key == 124) ? 10 : 0;
-	i->y_place -= (key == 126) ? 10 : 0;
-	i->x_place -= (key == 123) ? 10 : 0;
+	i->ypos += (key == 125) ? 10 : 0;
+	i->xpos += (key == 124) ? 10 : 0;
+	i->ypos -= (key == 126) ? 10 : 0;
+	i->xpos -= (key == 123) ? 10 : 0;
 	if (i->zoom < 100)
 		i->zoom += (key == 69) ? 1 : 0;
 	if (i->zoom > 1)

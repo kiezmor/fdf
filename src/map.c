@@ -39,6 +39,7 @@ int		count_line(char *map)
 	int		s;
 	char	*line;
 
+	s = 0;
 	fd = open(map, O_RDONLY);
 	while(get_next_line(fd, &line) > 0)
 		s++;

@@ -20,6 +20,8 @@ FLAGS	=	-Wall -Wextra -Werror
 INC		=	-I inc
 FRAMEW	=	-I./mlx -L./mlx -lmlx -framework OpenGL -framework AppKit
 
+## git pull && gcc -Wall -Wextra -Werror -I./inc libft/libft.a -I./libft/includes src/*c -I./mlx -L./mlx -lmlx -framework OpenGL -framework AppKit
+
 ## Directories
 
 INC_D	= 	-I inc

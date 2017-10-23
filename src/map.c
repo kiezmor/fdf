@@ -14,7 +14,7 @@
 
 void	check_char(char c)
 {
-	if (ft_isdigit(c) && c == ' ' && c == '-')
+	if (ft_isdigit(c) || c == ' ' || c == '-')
 		;
 	else
 		errors(4);

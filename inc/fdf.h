@@ -20,7 +20,6 @@
 # define NAME "FdF"
 # define HGT 720
 # define WDT 1080
-# define ERROR { exit(EXIT_FAILURE); }
 
 typedef struct	s_info
 {

@@ -17,13 +17,13 @@
 void	errors(int id)
 {
 	if (id == 1)
-		ft_putendl_fd("Error, too much arguments.\n", 2);
+		ft_putendl_fd("Error, too much arguments.", 2);
 	if (id == 2)
-		ft_putendl_fd("Error, missing arguments.\n", 2);
+		ft_putendl_fd("Error, missing arguments.", 2);
 	if (id == 3)
-		ft_putendl_fd("Error, file not found.\n", 2);
+		ft_putendl_fd("Error, file not found.", 2);
 	if (id == 4)
-		ft_putendl_fd("Error, invalid file.\n", 2);
+		ft_putendl_fd("Error, invalid file.", 2);
 	ft_putendl("Usage:\t./fdf <map>");
 	exit(EXIT_FAILURE);
 }

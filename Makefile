@@ -6,7 +6,7 @@
 #    By: vpluchar <vpluchar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/19 22:17:21 by vpluchar          #+#    #+#              #
-#    Updated: 2017/10/20 03:50:29 by vpluchar         ###   ########.fr        #
+#    Updated: 2017/10/23 21:26:57 by vpluchar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,9 @@
 NAME	=	fdf
 
 ## Compilation
-CC		=	gcc $(FLAGS) $(INC)
+CC		=	gcc $(FLAGS)
 FLAGS	=	-Wall -Wextra -Werror
-INC		=	-I inc
+INC		=	-I./inc -I./libft/includes
 FRAMEW	=	-I./mlx -L./mlx -lmlx -framework OpenGL -framework AppKit
 
 ## git pull && gcc -Wall -Wextra -Werror -I./inc libft/libft.a -I./libft/includes src/*c -I./mlx -L./mlx -lmlx -framework OpenGL -framework AppKit
@@ -37,14 +37,16 @@ NC		=	\x1b[0m
 
 ## Files
 
+LIB		=	libft/libft.a
+
 OBJ		=	$(addprefix $(OBJ_D)/, $(SRC: .c=.o))
 
-SRC		=	src/fdf.c\
+SRC		=	src/clr.c\
+			src/fdf.c\
 			src/init.c\
-			src/clr.c\
 			src/key.c\
 			src/map.c\
-			src/printf.c
+			src/print.c
 
 ## Utils
 
@@ -64,7 +66,7 @@ $(OBJ_D)/%.o: ./src/%.c
 	$(CC) -c $< -o $@
 
 e:
-	$(CC) -o $(NAME) $(FRAMEW) -I./libft/includes/ libft/libft.a $(SRC)
+	$(CC) -o $(NAME) $(INC) $(LIB) $(SRC) $(FRAMEW)
 
 clean: 
 	@rm -rf $(OBJ_D)

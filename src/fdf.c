@@ -6,13 +6,11 @@
 /*   By: vpluchar <vpluchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 00:39:39 by vpluchar          #+#    #+#             */
-/*   Updated: 2017/10/20 03:51:38 by vpluchar         ###   ########.fr       */
+/*   Updated: 2017/10/27 17:12:17 by vpluchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "fdf.h"
-#include "libft.h"
 
 void	errors(int id)
 {
@@ -28,7 +26,7 @@ void	errors(int id)
 	exit(EXIT_FAILURE);
 }
 
-int	main(int ac, char **av)
+int		main(int ac, char **av)
 {
 	t_info	*i;
 	int		fd;

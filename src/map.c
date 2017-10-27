@@ -6,7 +6,7 @@
 /*   By: vpluchar <vpluchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 03:31:20 by vpluchar          #+#    #+#             */
-/*   Updated: 2017/10/22 19:13:51 by vpluchar         ###   ########.fr       */
+/*   Updated: 2017/10/27 17:14:53 by vpluchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ void	check_char(char c)
 int		count_col(char **tab, t_info *i)
 {
 	int	s;
-	
+
 	s = 0;
-	while(tab[s])
+	while (tab[s])
 		s++;
 	i->ylines = s;
-	if(i->bol == 0)
+	if (i->bol == 0)
 		i->ylines_check = s;
 	return (s);
 }
@@ -41,7 +41,7 @@ int		count_line(char *map)
 
 	s = 0;
 	fd = open(map, O_RDONLY);
-	while(get_next_line(fd, &line) > 0)
+	while (get_next_line(fd, &line) > 0)
 		s++;
 	close(fd);
 	return (s);
@@ -57,13 +57,13 @@ int		*stock_tab(char *str, t_info *i)
 	s = 0;
 	tmp = ft_strsplit(str, ' ');
 	tab = (int *)malloc(sizeof(int) * count_col(tmp, i));
-	while(tmp[s])
+	while (tmp[s])
 	{
 		check_char(*tmp[s]);
 		tab[s] = ft_atoi(tmp[s]);
 		s++;
 	}
-	if(!(s))
+	if (!(s))
 		errors(4);
 	return (tab);
 }
@@ -80,7 +80,7 @@ void	open_map(t_info *i, char *map)
 	lc = count_line(map);
 	i->tab = (int **)malloc(sizeof(int *) * lc);
 	ft_memset(i, 0, sizeof(i));
-	while((get_next_line(fd, &line)) > 0)
+	while ((get_next_line(fd, &line)) > 0)
 	{
 		i->tab[c] = stock_tab(line, i);
 		i->bol = 1;

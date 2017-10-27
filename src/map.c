@@ -42,15 +42,29 @@ int		count_line(char *map)
 	s = 0;
 	fd = open(map, O_RDONLY);
 	while (get_next_line(fd, &line) > 0)
+	  {
+	    free(line);
 		s++;
+	  }
+	free(line);
 	close(fd);
 	return (s);
+}
+
+static void	ft_cleanup_stock_tab(char ***tmp)
+{
+  unsigned int	i;
+
+  i = 0;
+  while ((*tmp)[i])
+    free((*tmp)[i++]);
+  free(*tmp);
 }
 
 int		*stock_tab(char *str, t_info *i)
 {
 	int		s;
-	char	**tmp;
+	char	**tmp __attribute__((cleanup(ft_cleanup_stock_tab)));
 	int		*tab;
 
 	tab = NULL;
@@ -84,10 +98,12 @@ void	open_map(t_info *i, char *map)
 	{
 		i->tab[c] = stock_tab(line, i);
 		i->bol = 1;
+		free(line);
 		if (i->ylines != i->ylines_check)
 			errors(4);
 		c++;
 	}
+	free(line);
 	i->xlines = c;
 	if (i->xlines == 0)
 		errors(4);

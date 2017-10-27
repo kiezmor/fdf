@@ -75,6 +75,7 @@ void	r_menu(t_info *s)
 
 void	l_menu(t_info *s)
 {
+  char	*tmp;
 	mlx_string_put(s->mlx, s->win, (WDT - 285), 0, 0xFFFFFF, \
 	"___________________________");
 	mlx_string_put(s->mlx, s->win, (WDT - 285), 20, 0xFFFFFF, \
@@ -90,11 +91,14 @@ void	l_menu(t_info *s)
 	mlx_string_put(s->mlx, s->win, (WDT - 285), 110, 0xFFFFFF,\
 	"___________________________");
 	mlx_string_put(s->mlx, s->win, (WDT - 190), 60, 0xFFFFFF, \
-	ft_itoa(s->deep));
+		       (tmp = ft_itoa(s->deep)));
+	free(tmp);
 	mlx_string_put(s->mlx, s->win, (WDT - 190), 80, 0xFFFFFF, \
-	ft_itoa(s->zoom));
+		       (tmp = ft_itoa(s->zoom)));
+	free(tmp);
 	mlx_string_put(s->mlx, s->win, (WDT - 190), 100, 0xFFFFFF, \
-	ft_itoa(s->flat));
+		       (tmp = ft_itoa(s->flat)));
+	free(tmp);
 	if (s->mode == 0)
 		mlx_string_put(s->mlx, s->win, (WDT - 190), 40, 0xFFFFFF, "ISO");
 	if (s->mode == 1)

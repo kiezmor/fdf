@@ -6,21 +6,13 @@
 /*   By: vpluchar <vpluchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 03:31:20 by vpluchar          #+#    #+#             */
-/*   Updated: 2017/10/27 17:14:53 by vpluchar         ###   ########.fr       */
+/*   Updated: 2017/10/27 18:17:31 by vpluchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	check_char(char c)
-{
-	if (ft_isdigit(c) || c == ' ' || c == '-')
-		;
-	else
-		errors(4);
-}
-
-int		count_col(char **tab, t_info *i)
+int			count_col(char **tab, t_info *i)
 {
 	int	s;
 
@@ -33,7 +25,7 @@ int		count_col(char **tab, t_info *i)
 	return (s);
 }
 
-int		count_line(char *map)
+int			count_line(char *map)
 {
 	int		fd;
 	int		s;
@@ -42,10 +34,10 @@ int		count_line(char *map)
 	s = 0;
 	fd = open(map, O_RDONLY);
 	while (get_next_line(fd, &line) > 0)
-	  {
-	    free(line);
+	{
+		free(line);
 		s++;
-	  }
+	}
 	free(line);
 	close(fd);
 	return (s);
@@ -53,15 +45,15 @@ int		count_line(char *map)
 
 static void	ft_cleanup_stock_tab(char ***tmp)
 {
-  unsigned int	i;
+	unsigned int	i;
 
-  i = 0;
-  while ((*tmp)[i])
-    free((*tmp)[i++]);
-  free(*tmp);
+	i = 0;
+	while ((*tmp)[i])
+		free((*tmp)[i++]);
+	free(*tmp);
 }
 
-int		*stock_tab(char *str, t_info *i)
+int			*stock_tab(char *str, t_info *i)
 {
 	int		s;
 	char	**tmp __attribute__((cleanup(ft_cleanup_stock_tab)));
@@ -82,7 +74,7 @@ int		*stock_tab(char *str, t_info *i)
 	return (tab);
 }
 
-void	open_map(t_info *i, char *map)
+void		open_map(t_info *i, char *map)
 {
 	int		fd;
 	int		lc;
@@ -96,12 +88,11 @@ void	open_map(t_info *i, char *map)
 	ft_memset(i, 0, sizeof(i));
 	while ((get_next_line(fd, &line)) > 0)
 	{
-		i->tab[c] = stock_tab(line, i);
+		i->tab[c++] = stock_tab(line, i);
 		i->bol = 1;
 		free(line);
 		if (i->ylines != i->ylines_check)
 			errors(4);
-		c++;
 	}
 	free(line);
 	i->xlines = c;

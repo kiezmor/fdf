@@ -6,7 +6,7 @@
 /*   By: vpluchar <vpluchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/22 19:33:46 by vpluchar          #+#    #+#             */
-/*   Updated: 2017/10/22 19:33:46 by vpluchar         ###   ########.fr       */
+/*   Updated: 2017/10/27 18:21:16 by vpluchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,20 @@ void	init_color_two(t_info *i, int z)
 		i->green = 255;
 		i->red = 255;
 	}
+}
+
+void	check_char(char c)
+{
+	if (ft_isdigit(c) || c == ' ' || c == '-')
+		;
+	else
+		errors(4);
+}
+
+void	mod(t_info *s)
+{
+	if (s->mode == 0)
+		mlx_string_put(s->mlx, s->win, (WDT - 190), 40, 0xFFFFFF, "ISO");
+	if (s->mode == 1)
+		mlx_string_put(s->mlx, s->win, (WDT - 190), 40, 0xFFFFFF, "PARA");
 }

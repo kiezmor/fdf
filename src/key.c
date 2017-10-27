@@ -6,7 +6,7 @@
 /*   By: vpluchar <vpluchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/22 19:38:12 by vpluchar          #+#    #+#             */
-/*   Updated: 2017/10/22 19:38:12 by vpluchar         ###   ########.fr       */
+/*   Updated: 2017/10/27 18:20:51 by vpluchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,8 @@ void	r_menu(t_info *s)
 
 void	l_menu(t_info *s)
 {
-  char	*tmp;
+	char	*tmp;
+
 	mlx_string_put(s->mlx, s->win, (WDT - 285), 0, 0xFFFFFF, \
 	"___________________________");
 	mlx_string_put(s->mlx, s->win, (WDT - 285), 20, 0xFFFFFF, \
@@ -91,22 +92,19 @@ void	l_menu(t_info *s)
 	mlx_string_put(s->mlx, s->win, (WDT - 285), 110, 0xFFFFFF,\
 	"___________________________");
 	mlx_string_put(s->mlx, s->win, (WDT - 190), 60, 0xFFFFFF, \
-		       (tmp = ft_itoa(s->deep)));
+		(tmp = ft_itoa(s->deep)));
 	free(tmp);
 	mlx_string_put(s->mlx, s->win, (WDT - 190), 80, 0xFFFFFF, \
-		       (tmp = ft_itoa(s->zoom)));
+		(tmp = ft_itoa(s->zoom)));
 	free(tmp);
 	mlx_string_put(s->mlx, s->win, (WDT - 190), 100, 0xFFFFFF, \
-		       (tmp = ft_itoa(s->flat)));
+		(tmp = ft_itoa(s->flat)));
 	free(tmp);
-	if (s->mode == 0)
-		mlx_string_put(s->mlx, s->win, (WDT - 190), 40, 0xFFFFFF, "ISO");
-	if (s->mode == 1)
-		mlx_string_put(s->mlx, s->win, (WDT - 190), 40, 0xFFFFFF, "PARA");
 }
 
 void	menu(t_info *i)
 {
 	r_menu(i);
 	l_menu(i);
+	mod(i);
 }

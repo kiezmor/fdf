@@ -6,7 +6,7 @@
 /*   By: vpluchar <vpluchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 01:24:26 by vpluchar          #+#    #+#             */
-/*   Updated: 2017/10/27 17:13:45 by vpluchar         ###   ########.fr       */
+/*   Updated: 2017/10/27 18:21:20 by vpluchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,6 @@ void			print_trace(t_point p1, t_point p2, t_info *i);
 void			printf_map(t_info *i);
 void			init_color(t_info *i, int z);
 void			init_color_two(t_info *i, int z);
+void			mod(t_info *s);
 
 #endif
